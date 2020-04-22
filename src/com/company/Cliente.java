@@ -1,5 +1,7 @@
 package com.company;
 
+import java.util.ArrayList;
+
 public class Cliente {
 
     /// Por otro lado, nuestro cliente nos cuenta que le interesa saber acerca de
@@ -8,6 +10,7 @@ public class Cliente {
     protected String nombre;
     protected int telefono;
     protected String direccion;
+    protected ArrayList <Alquiler> alquilerCliente = new ArrayList<>();
 
     public Cliente ()
     {

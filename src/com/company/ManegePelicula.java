@@ -2,7 +2,7 @@ package com.company;
 
 import java.util.Scanner;
 
-public class ManegePelicula extends Pelicula {
+public class ManegePelicula {
 
     public Pelicula nuevaPelicula ()
     {
@@ -28,6 +28,5 @@ public class ManegePelicula extends Pelicula {
 
         return unaPelicula;
     }
-
 
 }

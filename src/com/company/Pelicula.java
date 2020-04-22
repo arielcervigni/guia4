@@ -14,6 +14,7 @@ public class Pelicula {
     protected String paisOrigen;
     protected String descripcion;
     protected int stock;
+    protected int cantAlquiler;
 
     public Pelicula ()
     {
@@ -24,6 +25,7 @@ public class Pelicula {
         this.paisOrigen = null;
         this.stock = 0;
         this.duracion = 0;
+        this.cantAlquiler = 0;
     }
 
     public Pelicula (String titulo, String genero, String fechaLanzamiento, String clasificacion, String paisOrigen, String descripcion, int duracion, int stock)
@@ -36,6 +38,7 @@ public class Pelicula {
        this.descripcion = descripcion;
        this.duracion = duracion;
        this.stock = stock;
+       this.cantAlquiler = 0;
     }
 
     public String getTitulo () { return this.titulo; }
@@ -46,6 +49,7 @@ public class Pelicula {
     public String getDescripcion () { return this.descripcion; }
     public int getDuracion () { return this.duracion; }
     public int getStock () { return this.stock; }
+    public int getCantAlquiler () { return this.cantAlquiler; }
 
     public void setTitulo (String titulo) { this.titulo = titulo; }
     public void setGenero (String genero) { this.genero = genero; }
@@ -55,6 +59,7 @@ public class Pelicula {
     public void setDescripcion (String descripcion) { this.descripcion = descripcion; }
     public void setDuracion (int duracion) { this.duracion = duracion; }
     public void setStock (int stock) { this.stock = stock; }
+    public void setCantAlquiler (int cantAlquiler) { this.cantAlquiler = cantAlquiler; }
 
     @Override
     public String toString ()
@@ -63,8 +68,8 @@ public class Pelicula {
                 "\nTitulo: " + this.titulo + "\nGenero: " + this.genero +
                 "\nFecha de Lanzamiento: " + this.fechaLanzamiento + "\nClasificación: " + this.clasificacion +
                 "\nPaís de Origen: " + this.paisOrigen + "\nDescripción: " + this.descripcion +
-                "\nDuración: " + this.duracion + " minutos" + "\nCantidad disponibles: " + this.stock;
+                "\nDuración: " + this.duracion + " minutos" + "\nCantidad disponibles: " + this.stock +
+                "\nCantidad de veces alquilada: " + this.cantAlquiler;
     }
-
 
     }
