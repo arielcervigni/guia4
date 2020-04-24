@@ -15,6 +15,7 @@ public class Pelicula {
     protected String descripcion;
     protected int stock;
     protected int cantAlquiler;
+    protected boolean devuelta;
 
     public Pelicula ()
     {
@@ -26,6 +27,7 @@ public class Pelicula {
         this.stock = 0;
         this.duracion = 0;
         this.cantAlquiler = 0;
+        this.devuelta = false;
     }
 
     public Pelicula (String titulo, String genero, String fechaLanzamiento, String clasificacion, String paisOrigen, String descripcion, int duracion, int stock)
@@ -39,6 +41,7 @@ public class Pelicula {
        this.duracion = duracion;
        this.stock = stock;
        this.cantAlquiler = 0;
+       this.devuelta = false;
     }
 
     public String getTitulo () { return this.titulo; }
@@ -50,6 +53,7 @@ public class Pelicula {
     public int getDuracion () { return this.duracion; }
     public int getStock () { return this.stock; }
     public int getCantAlquiler () { return this.cantAlquiler; }
+    public boolean getDevuelta () { return this.devuelta; }
 
     public void setTitulo (String titulo) { this.titulo = titulo; }
     public void setGenero (String genero) { this.genero = genero; }

@@ -10,6 +10,7 @@ public class Alquiler {
     protected Pelicula arregloDePeliculas [] = new Pelicula[5];
     protected String retiro;
     protected String devolucion;
+    protected boolean devuelta;
 
 
     /// Constructores
@@ -18,6 +19,7 @@ public class Alquiler {
         this.retiro = null;
         this.devolucion = null;
         arregloDePeliculas = null;
+        this.devuelta = false;
     }
 
     public Alquiler (Cliente unCliente, String retiro, String devolucion, Pelicula peli1, Pelicula peli2)
@@ -27,17 +29,20 @@ public class Alquiler {
         this.devolucion = devolucion;
         this.arregloDePeliculas[1] = peli1;
         this.arregloDePeliculas[0] = peli2;
+        this.devuelta = false;
     }
 
     public Cliente getUnCliente() { return this.unCliente; }
     public String getRetiro () { return this.retiro; }
     public String getDevolucion () { return  this.devolucion; }
     public Pelicula [] getArregloDePelicula() { return arregloDePeliculas; }
+    public boolean getDevuelta () { return devuelta; }
 
     public void setUnCliente (Cliente unCliente) { this.unCliente = unCliente; }
     public void setRetiro (String retiro) { this.retiro =  retiro; }
     public void setDevolucion (String devolucion) { this.devolucion = devolucion; }
     public void setArregloDePelicula (Pelicula [] arregloDePeliculas) { this.arregloDePeliculas = arregloDePeliculas; }
+    public void setDevuelta (boolean dev) {this.devuelta = dev; }
 
     public StringBuilder mostrarPelis (Pelicula [] ADP) {
         StringBuilder pelis = new StringBuilder();

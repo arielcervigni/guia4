@@ -1,9 +1,15 @@
 package com.company;
 
 import java.util.ArrayList;
+import java.util.List;
 import java.util.SplittableRandom;
+import com.company.Alquiler;
+import com.company.Pelicula;
+import com.company.Cliente;
 
 public class VideoClub {
+
+
 
     public void nuevoAlquiler (Alquiler unAlquiler)
     {
@@ -19,6 +25,22 @@ public class VideoClub {
         }
     }
     /// Ejercicio 1
+    //Quiere una forma de poder consultar los alquileres vigentes.
+    public ArrayList  alquileresVigentes (List arregloDeAlquieres, String dia)
+    {
+        ArrayList <Alquiler> arregloVigente =  new ArrayList<>();
+        int i;
+            for (i=0; i <arregloDeAlquieres.size(); i++)
+            {
+                if (arregloDeAlquieres.get(i)== )
+                {
+                   arregloVigente.add(arregloDeAlquieres.get(i));
+                }
+            }
+        return arregloVigente;
+    }
+
+    /// Ejercicio 2
     public StringBuilder devolucionesDelDia (ArrayList arregloDeAlquileres, String diaDevolucion) {
 
         StringBuilder devoluciones = new StringBuilder();
@@ -28,7 +50,6 @@ public class VideoClub {
             int i;
             String fechaDevolucion;
             Alquiler unAlquiler;
-            System.out.println(devoluciones);
 
             for (i = 0; i < arregloDeAlquileres.size(); i++) {
                 unAlquiler = (Alquiler) arregloDeAlquileres.get(i);
@@ -42,4 +63,5 @@ public class VideoClub {
             devoluciones.append("Error en el programa");
         return devoluciones;
     }
+
 }
