@@ -1,7 +1,6 @@
 package com.company;
 
 import java.util.ArrayList;
-import java.util.Date;
 
 public class Alquiler {
 
@@ -63,9 +62,9 @@ public class Alquiler {
         return "\n------------ Alquiler: ------------" +
                 unCliente.toString() + pelis +
                 "\nFecha de Retiro: " + this.retiro +
-                "\nFecha de Devolución: " + this.devolucion;
+                "\nFecha de Devolución: " + this.devolucion +
+                "\nDevuelta: " + this.devuelta;
     }
-
 
 
 

@@ -1,6 +1,8 @@
 package com.company;
 
+import java.lang.reflect.Array;
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.List;
 import java.util.SplittableRandom;
 import com.company.Alquiler;
@@ -9,7 +11,16 @@ import com.company.Cliente;
 
 public class VideoClub {
 
+    protected ArrayList <Cliente> listaDeClientes;
+    protected ArrayList <Pelicula> listaDePeliculas;
+    protected ArrayList <Alquiler> listaDeAlquileres;
 
+    public VideoClub (ArrayList clientes, ArrayList pelis, ArrayList alqui)
+    {
+        this.listaDeAlquileres = alqui;
+        this.listaDeClientes = clientes;
+        this.listaDePeliculas = pelis;
+    }
 
     public void nuevoAlquiler (Alquiler unAlquiler)
     {
@@ -24,44 +35,91 @@ public class VideoClub {
             }
         }
     }
+
     /// Ejercicio 1
     //Quiere una forma de poder consultar los alquileres vigentes.
-    public ArrayList  alquileresVigentes (List arregloDeAlquieres, String dia)
+
+    public ArrayList <Alquiler> getVigentes ()
     {
-        ArrayList <Alquiler> arregloVigente =  new ArrayList<>();
+        ArrayList <Alquiler> vigentes = new ArrayList<>();
         int i;
-            for (i=0; i <arregloDeAlquieres.size(); i++)
+        for (i=0; i<listaDeAlquileres.size(); i++)
+        {
+            if (listaDeAlquileres.get(i).getDevuelta() == false)
             {
-                if (arregloDeAlquieres.get(i)== )
-                {
-                   arregloVigente.add(arregloDeAlquieres.get(i));
-                }
+                vigentes.add(listaDeAlquileres.get(i));
             }
-        return arregloVigente;
+        }
+        return vigentes;
     }
 
     /// Ejercicio 2
-    public StringBuilder devolucionesDelDia (ArrayList arregloDeAlquileres, String diaDevolucion) {
+    public ArrayList getDevolucionesDelDia (String fechaDevolucion) {
 
-        StringBuilder devoluciones = new StringBuilder();
+        int i;
+        ArrayList<Alquiler> devolucionesDelDia = new ArrayList<>();
 
-        if (arregloDeAlquileres != null) {
-
-            int i;
-            String fechaDevolucion;
-            Alquiler unAlquiler;
-
-            for (i = 0; i < arregloDeAlquileres.size(); i++) {
-                unAlquiler = (Alquiler) arregloDeAlquileres.get(i);
-                fechaDevolucion = unAlquiler.getDevolucion();
-                if (diaDevolucion == fechaDevolucion) {
-                    devoluciones.append(unAlquiler.toString());
-                }
+        for (i = 0; i < listaDeAlquileres.size(); i++) {
+            //String fecha = listaDeAlquileres.get(i).getDevolucion();
+            if (( listaDeAlquileres.get(i).getDevolucion() == fechaDevolucion) && (listaDeAlquileres.get(i).getDevuelta()==false)) {
+                devolucionesDelDia.add(listaDeAlquileres.get(i));
             }
         }
-        else
-            devoluciones.append("Error en el programa");
-        return devoluciones;
+        return devolucionesDelDia;
+    }
+
+    /// Ejercicio 3
+    public ArrayList getAlquilerPorCliente (Cliente unCliente)
+    {
+        ArrayList <Alquiler> alquilerCliente = new ArrayList<>();
+
+        for (int i=0; i <listaDeAlquileres.size(); i++)
+        {
+            if (listaDeAlquileres.get(i).getUnCliente() == unCliente)
+            {
+                alquilerCliente.add(listaDeAlquileres.get(i));
+            }
+        }
+        return alquilerCliente;
+    }
+
+    /// Ejercicio 5
+
+    public ArrayList busquedaPorGenero (String aBuscar)
+    {
+        ArrayList<Pelicula> listaPorGenero = new ArrayList<>();
+
+        for (int i = 0; i < listaDePeliculas.size(); i++) {
+            if (listaDePeliculas.get(i).getGenero() == aBuscar)
+            {
+                listaPorGenero.add(listaDePeliculas.get(i));
+            }
+        }
+        listaPorGenero.sort(Comparator.comparingInt(Pelicula::getCantAlquiler).reversed());
+
+        return listaPorGenero;
+    }
+
+    public Pelicula buscarPelicula (String titulo)
+    {
+        Pelicula encontrada =null;
+
+        for (int i =0; i<listaDePeliculas.size(); i++)
+        {
+            if (listaDePeliculas.get(i).getTitulo() == titulo)
+            {
+                encontrada = listaDePeliculas.get(i);
+            }
+        }
+        return encontrada;
+    }
+
+    public void mostrarLista (ArrayList lista)
+    {
+        for (int i =0; i <lista.size(); i++)
+        {
+            System.out.println(lista.get(i).toString());
+        }
     }
 
 }
